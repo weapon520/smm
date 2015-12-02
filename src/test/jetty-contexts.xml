@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE Configure PUBLIC "-//Jetty//Configure//EN" "http://www.eclipse.org/jetty/configure.dtd">
+<Configure class="org.eclipse.jetty.webapp.WebAppContext">
+    <!-- JETTY 9.2 以前的配置-->
+    <Call name="setAttribute">
+        <Arg>org.eclipse.jetty.server.webapp.WebInfIncludeJarPattern</Arg>
+        <Arg>.*/.*jsp-api-[^/]\.jar$|./.*jsp-[^/]\.jar$|./.*taglibs[^/]*\.jar$
+        </Arg>
+    </Call>
+
+    <!-- jetty 9.3以后的配置 -->
+    <!--    <Call name="setAttribute">
+            <Arg>org.eclipse.jetty.server.webapp.ContainerIncludeJarPattern</Arg>
+            <Arg>.*/[^/]*servlet-api-[^/]*\.jar$|.*/javax.servlet.jsp.jstl-.*\.jar$|.*/org.apache.taglibs.taglibs-standard-impl-.*\.jar$</Arg>
+        </Call> -->
+</Configure>

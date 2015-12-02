@@ -1,0 +1,13 @@
+
+.wrapper {padding: 130px 9%;}
+.wrapper .left {float: left;width: 40%;}
+.wrapper .right {float: right;padding-top: 50px;width: 50%;}
+.wrapper .right h1 {font-size: 30px;margin-bottom: 30px;color: #666;}
+.wrapper .right p {font-size: 15px;color: #999;margin-bottom: 10px;}
+.wrapper .btn_wrap {padding-top: 60px;}
+.wrapper .btn_wrap a {display: inline-block;*display: inline;*zoom: 1;min-width: 140px;height: 40px;line-height: 40px;padding: 0 15px;color: #fff;border-radius: 5px;text-align: center;}
+.wrapper .btn_wrap a span {display: inline-block;*display: inline;*zoom: 1;height: 40px;margin-right: 5px;vertical-align: middle;}
+.wrapper .btn_wrap .btn1 {background-color: #fc0;}
+.wrapper .btn_wrap .btn2 {margin-left: 30px;background-color: #ff530b;}
+.wrapper .btn_wrap .btn1 span {width: 35px;background: url(/images/front/icon_404.png) no-repeat 0 0;}
+.wrapper .btn_wrap .btn2 span {width: 30px;background: url(/images/front/icon_404.png) no-repeat -40px 0;}
