@@ -6,7 +6,10 @@
 
 
     <!--获取数据库配置文件-->
-    <context:property-placeholder location="classpath:profiles/${profile.env}/mysqldb.properties"/>
+    <context:property-placeholder location=
+                                          "classpath:log4j.properties,
+                                           classpath:profiles/${profile.env}/mysqldb.properties,
+                                           classpath:profiles/${profile.env}/redis.properties"/>
 
 
     <!--设置数据源c3p0-->
@@ -20,7 +23,19 @@
         <property name="maxIdleTime" value="60"/>
     </bean>
 
+    <bean id="jedisShardInfoMaster1" class="redis.clients.jedis.JedisShardInfo">
+        <constructor-arg index="0" type="java.lang.String" value="${redis.master1.host}"/>
+        <constructor-arg index="1" type="int" value="${redis.master1.port}"/>
+        <property name="password" value="${redis.master1.pass}"/>
+        <property name="timeout" value="100000"/>
+    </bean>
 
+    <bean id="jedisShardInfoMaster2" class="redis.clients.jedis.JedisShardInfo">
+        <constructor-arg index="0" type="java.lang.String" value="${redis.master2.host}"/>
+        <constructor-arg index="1" type="int" value="${redis.master2.port}"/>
+        <property name="password" value="${redis.master2.pass}"/>
+        <property name="timeout" value="100000"/>
+    </bean>
 
 
 
@@ -33,6 +48,22 @@
 
     </bean>
 
+    <!--redis  bean-->
+    <bean id="jedisConnectionFactoryMaster1" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
+        <property name="shardInfo" ref="jedisShardInfoMaster1"/>
+    </bean>
+
+    <bean id="jedisConnectionFactoryMaster2" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
+        <property name="shardInfo" ref="jedisShardInfoMaster2"/>
+    </bean>
+
+    <bean id="redisTemplateMaster1" class="org.springframework.data.redis.core.RedisTemplate">
+        <property name="connectionFactory" ref="jedisConnectionFactoryMaster1"/>
+    </bean>
+
+    <bean id="redisTemplateMaster2" class="org.springframework.data.redis.core.RedisTemplate">
+        <property name="connectionFactory" ref="jedisConnectionFactoryMaster2"/>
+    </bean>
     <!--自动扫描mapper接口，并注入sqlsession-->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <!-- 扫描包路径，如果需要扫描多个包，中间使用半角逗号隔开 -->

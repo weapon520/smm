@@ -4,7 +4,7 @@
 <html>
 <head>
 <title>出错了 - </title>
-	<link rel="stylesheet" href="${applicationScope.imagesDomain}/static/style/front/error.css" />
+	<link rel="stylesheet" href="${applicationScope.imagesDomain}/css/front/error.css" />
 </head>
 <body class="otherBg">
 <!-- %@ include file="/inc/simpleHeader.jsp"% > -->
@@ -12,7 +12,7 @@
 <div class="maxWidth">
 	<div class="wrapper clearfix">
 		<div class="left">
-			<img  src="/static/img/front/png_500.png"/>
+			<img  src="/images/front/png_500.png"/>
 		</div>
 		<div class="right">
 			<h1>对不起，没有找到您所请求的页面</h1>
@@ -26,8 +26,9 @@
 	</div>
 </div>
 <!-- 公用底部 -->
+<script type="text/javascript" src="${applicationScope.imagesDomain}/js/jquery/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
 
-<script>
 	$(function(){
 		var time= 10;
 		var obj = $(".time")

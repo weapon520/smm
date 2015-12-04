@@ -1,6 +1,7 @@
 package com.weapon.smm3.controller;
 
 import com.google.common.collect.Lists;
+import com.weapon.smm3.common.RedisCons;
 import com.weapon.smm3.pojo.User;
 import com.weapon.smm3.service.UserService;
 import org.springframework.stereotype.Controller;
@@ -31,6 +32,16 @@ public class UserController {
         //设置响应的jsp视图
         modelAndView.setViewName("findUser");
 
+        return modelAndView;
+    }
+
+    @RequestMapping("/findUserRedis")
+
+    public ModelAndView findUserRedis()throws  Exception{
+        ModelAndView modelAndView = new ModelAndView();
+        List<User> users=userService.findUserByRedis(RedisCons.REDIS_KEY_USER);
+        modelAndView.addObject("users",users);
+        modelAndView.setViewName("findUser");
         return modelAndView;
     }
 }

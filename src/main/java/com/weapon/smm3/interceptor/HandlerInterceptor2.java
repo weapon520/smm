@@ -11,15 +11,15 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class HandlerInterceptor2 implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws Exception {
-        System.out.println("HandlerInterceptor2...preHandle");
+        //System.out.println("HandlerInterceptor2...preHandle");
         return true;
     }
 
     public void postHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, ModelAndView modelAndView) throws Exception {
-        System.out.println("HandlerInterceptor2...postHandle");
+        //System.out.println("HandlerInterceptor2...postHandle");
     }
 
     public void afterCompletion(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, Exception e) throws Exception {
-        System.out.println("HandlerInterceptor2...afterCompletion");
+        //System.out.println("HandlerInterceptor2...afterCompletion");
     }
 }

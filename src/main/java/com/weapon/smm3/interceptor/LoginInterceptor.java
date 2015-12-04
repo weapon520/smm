@@ -41,10 +41,10 @@ public class LoginInterceptor implements HandlerInterceptor {
     }
 
     public void postHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, ModelAndView modelAndView) throws Exception {
-        System.out.println("LoginInterceptor...postHandle");
+        //System.out.println("LoginInterceptor...postHandle");
     }
 
     public void afterCompletion(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, Exception e) throws Exception {
-        System.out.println("LoginInterceptor...afterCompletion");
+        //System.out.println("LoginInterceptor...afterCompletion");
     }
 }

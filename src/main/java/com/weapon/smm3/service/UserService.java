@@ -9,4 +9,6 @@ import java.util.List;
  */
 public interface UserService {
     List<User> findUser()throws Exception;
+
+    List<User> findUserByRedis(String redisKey)throws  Exception;
 }

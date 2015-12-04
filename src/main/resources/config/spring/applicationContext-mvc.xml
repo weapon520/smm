@@ -42,7 +42,7 @@
     <!-- 全局异常处理器
 	只要实现HandlerExceptionResolver接口就是全局异常处理器
 	 -->
-    <bean class="com.weapon.smm3.common.ExceptionResolver"></bean>
+    <!--<bean class="com.weapon.smm3.common.ExceptionResolver"></bean>-->
 
     <!-- 文件上传 -->
     <bean id="multipartResolver"
